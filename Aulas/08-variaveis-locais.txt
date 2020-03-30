@@ -1,0 +1,39 @@
+Exercício 1)
+Não pois ele está pegando o valor da memória. (%rsp + 8)
+
+Exercício 2)
+
+    1)
+    reserva 16 bytes na pilha
+    inicia duas variaveis
+        var1 = 0xc(%rsp)
+            conteúdo = 10
+            tipo = inteiro
+            tamanho = 4 bytes
+        var2 = 0x8(%rsp)
+            conteúdo = 11
+            tipo = inteiro
+            tamanho = 4 bytes
+
+    2)
+    var1
+        linha +20
+    
+    var2
+        linha +30, +35
+
+    3)
+    Não pois indica um endereço e não uma soma de variáveis
+
+    4) 
+    func2(var1)
+    func2(var2)
+
+    5)
+    void func1(){
+        int var1 = 10;
+        int var2 = 11;
+        func2(&var2);
+        var2 += 1;
+        func2(&var1);
+    }
