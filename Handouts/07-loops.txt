@@ -104,3 +104,12 @@ Exercício 3)
     }
 
 Exercício 4)
+
+    1)
+    linha <+10> jmp, pula pra linha <+21>
+    linha <+23> jl , pula pra linha <+12>
+
+    2)
+    int soma_n (int edi) {
+        
+    }
