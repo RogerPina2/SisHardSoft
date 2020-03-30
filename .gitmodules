@@ -1,0 +1,9 @@
+[submodule "sistemashardwaresoftware"]
+	path = sistemashardwaresoftware
+	url = https://github.com/Insper/SistemasHardwareSoftware.git
+[submodule "Conteúdo"]
+	path = Conteúdo
+	url = https://github.com/Insper/SistemasHardwareSoftware.git
+[submodule "Atividades"]
+	path = Atividades
+	url = https://github.com/Insper/sistemashardwaresoftware-atividades.git

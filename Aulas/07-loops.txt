@@ -1,0 +1,106 @@
+Aula 07 - Loops while e for
+
+Parte 1 - revisão
+
+Exercício 1)
+    
+    1)
+    A função recebe 4 argumentos
+    %rsi, %rdi, %rdx, %rcx => long
+    Sim, retona um inteiro
+
+    2)
+    salva em %eax o resultado da conta %rsi + 2 * %rdi
+    salva em %edx o resultado da conta %rdx + 2 * %rdx
+    salva em %eax a soma de %eax e %edx
+    salva em %ecx o resultado da conta %rcx + 2 * %rcx
+    salva em %edx o resultado da conta %rcx + 1 * %rcx
+    salva em %eax a soma de %eax e %edx
+    retorna %eax
+
+    3)
+    // %rsi = a
+    // %rdi = b
+    // %rdx = c
+    // %rcx = d
+
+    int ex1 (long a, long b, long c, long d) {
+        return a + 2*b + 3*c + 6*d;
+    }
+
+Exercício 2)
+
+    1)
+    A função recebe 3 argumentos
+    %esi, %edi => int; %rdx => long (ponteiro)
+    Sim, retorna um inteiro
+
+    2)
+    A função compara se a subtração %edi - %esi é maior que 0.
+    Logo, compara se %edi > %esi
+
+    3)
+    A variável detino é do tipo inteiro
+
+    4)
+    // %esi = a
+    // %edi = b
+    // %rdx = p
+    int ex2 (int a, int b, int *p) {
+        if (b > a) goto if1:
+            *p = a;
+            return 0;
+
+        if1:
+        *p = b;
+        return 1;
+    }
+
+    5)
+    int ex2 (int a, int b, int *p) {
+        if (b <= a) {
+            *p = a;
+            return 0;
+        }
+
+        *p = b;
+        return 1;
+    }
+
+Parte 2 - loops [while] e [for]
+
+Exercício 3)
+
+    1)
+    linha <+8> jbe, pula pra linha <+17>
+    linha <+15> jmp, pula pra linha <+5>
+
+    2) 
+    Sim, entre as linhas <+5> e <+15>
+
+    3)
+    // %edi = a
+    int soma_2n (int a) {
+        int out = 1;
+        if0:
+        if (a <= 1) goto if1:
+            a /= 2;
+            out++;
+            goto if0:
+        
+        if1:
+        return out;
+    }
+
+    4)
+    int soma_2n (int a) {
+        int out = 1;
+        while (a > 1) {
+            a /= 2;
+            out++;
+        }
+
+        return out;
+    }
+
+Exercício 4)
