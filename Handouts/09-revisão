@@ -2,3 +2,64 @@ Aula 09 - Prática de Engenharia Reversa (30/03)
 
 Parte 1 - Revisão de funções e [LEA]
 
+    Exercício)
+    int a = 6;  //r9d
+    int b = 5;  //r8d
+    int c = 4;  //ecx
+    int d = 3;  //edx
+    int e = 2;  //esi
+    int f = 1;  //edi
+    exemplo1(a,b,c,d,e,f);
+
+    Exercício)
+    //eax = rcx + 1 * r9
+    int out = c + f;
+
+    Exercício)
+
+    int exemplo1 (a,b,c,d,e,f) {
+        return  f + e + d + c + b + a;
+    }
+
+    Exercício)
+
+    e = 10 + exemplo1(1,2,3,4,5,6);
+
+Parte 2 - exercícios intermediários
+
+    Exercício)
+
+        1)
+        A função recebe 3 argumentos
+        %rdi, %rsi, %rdx => long;
+
+        int ex1 (long a, long b, long c);
+
+        2)
+        Representa operações aritméticas pois o LEA nunca acessa a memória
+
+        3)
+        <+0>    rax = rdi + 1 * rsi
+        <+16>   rax = rdi + 2 * rsi
+
+        4)
+        %rcx >= %rdx, armazena em %al
+
+        5)
+        move o valor de %al pra %eax
+        zbl => unsigned vindo de um char pra um int
+
+        return rcx >= rdx;
+
+    ======================================================================
+
+    Exercício)
+
+        1)
+        A função recebe 3 argumentos
+        %rdi, %rsi => long;
+
+        void ex2(long a, long b, long c);
+
+        2)
+        
