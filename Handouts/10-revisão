@@ -1,0 +1,117 @@
+Aula 10 - Prática de Engenharia Reversa 
+
+Parte 1 - Ponteiro e variáveis globais
+
+Exercício)
+
+    // %rsi = a
+    // %edi = b
+    // %rdx = p
+
+    int muda_valor (long a, int b, int *p) {
+        *p = b + a + 2*a;
+        int eax = b + 2*b;
+    }
+
+Exercício)
+
+    // %rsi = a
+    // %edi = b
+    // %rdx = p
+
+    int muda_valor (long a, int b, int *p) {
+        var_global++;
+        *p = b + 3*a;
+        var_global += b + 2*b; 
+    }
+
+Parte 2 - Exercícios intermediários
+
+Exercício) 
+    
+    1)
+        Não recebe argumentos
+        Sim, retorna.
+
+        int ex1 ();
+
+        void faz_algo ();
+
+    2)
+        linha <+21>
+
+    3)
+        linha <+6> => jmp
+        linha <+29> => jg
+
+        loop entre as linhas <+8> e <+29>
+
+    4) 
+        Condição testada na linha <+21>
+        Testa se a variavel global var1 é maior do que 0
+
+    5)
+        int ex1 () {
+            int ebx = 0;
+            goto if0:
+            if1:
+                int eax = 0;
+                faz_algo();
+                ebx++;
+
+            if0:
+                if (var1 > 0) goto if1:
+                eax += ebx;
+                return eax;
+        }
+
+Exercício)
+    1)
+        %rdx => long, %rdi => long, %rsi => long
+        Não existe valor de retorno
+
+        void ex2 (long *p, long *q, long a);
+
+    2) 
+        linha <+6> => jg
+        linha <+23> => jmp
+
+        linha <+3> (%rdi) > (%rdx)
+    
+    3)
+        <+22> até <+26> e <+15> até <+21>
+
+    4)
+        move o valor apontado por %rdx para %rax
+        compara %rax e o valor apontado por %rdi
+        pula pra linha <+22> caso (%rdi) > %rax
+        adicona 1 em %rax
+        move o valor de %rax para variável apontado por %rdx
+        add o valor da variável apontado por %rdx em %rsi
+        move o valor de %rsi para a var. apontada por %rdi
+        retorna
+        %rsi = %rsi + 2*%rsi
+        pula pra linha <+15>
+
+Exercício)
+    1)
+        2 variáveis globais e são usadas nas linhas:
+            var1: linhas <+0> e <+25>
+            var2: linhas <+9> e <+31>
+
+    2)
+        Sim, 1 argumento => %rdi => int
+        Não
+        
+        void ex3 (int *p);
+
+    3) 
+        move o valor da var1 (int) para o registrador %eax (int)
+        %eax (int) = %rax + 4*%rax
+        move o valor da var2 (int) para o registrador %edx (int)
+        %ecx (int) = %rdx + 4*%rdx
+        %edx (int) = %rcx + 1*%rcx
+        adiciona %edx em %eax
+        move o valor do registrador %eax para a variavel apontador por %rdi (int)
+        adiciona o valor da var1 em %eax
+        move o valor de %eax para a var2
