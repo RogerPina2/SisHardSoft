@@ -1,0 +1,54 @@
+LEVEL3
+r8 = rdx
+ecx = 0
+
+goto 17:
+10:
+    rcx += rdi
+    rdi += 1
+
+17:
+    rax = rdi
+    cqto (rdx:rax)
+    idiv %rsi
+    if (rdx != 56) goto 10:
+
+if (rcx == r8) {al=1}
+    else {al=0}
+return al
+
+===============================================
+
+LEVEL4
+
+c = rsp
+b = 0x8(%rsp)
+a = 0x2ed(%rip) # 0xc1a (#lu, #lu)
+scanf(b,c)
+
+a = b
+if (a > 1788) goto 53:
+if (c <= 12355) {
+    return 0;
+}
+    
+53:
+b = c
+level4_2(a, b)
+if (eax == 0) { 
+    return 1;
+} else {
+    return 0;
+}
+
+===============================================
+
+level4_2
+
+rax = 3*rdi
+
+if (rax * 2^4 >= rsi * 861) {
+    return 1
+} else {
+    return 0
+}

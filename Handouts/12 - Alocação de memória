@@ -1,0 +1,29 @@
+Aula 12 - Alocação Dinâmica de Memória
+
+Parte 1 - Aquecimento
+
+Exercício 1:
+    a)
+        Cria um vetor de 44 bytes 
+        (N=11 e sizeof(int) = 4)
+        elementos e preenche cada posição 
+        com o valor da posição até a posição N=11.
+        Em seguida, imprime cada elemento do vetor
+        deslocando posição do vetor 
+        com o valor dele em 1.
+
+    b)
+        No segundo for caso o loop passe por posições 
+        da memória não inicializados pode ocorrer erro,
+        pois não deve-se considerar que os endereços são
+        inicializados em 0. 
+
+    c)
+        Não, ele ddeveria liberar o vetor de endereços
+        N+1 em diante.
+
+Exercício 2:
+    a)
+        Não ocorreu.
+
+    b) 
