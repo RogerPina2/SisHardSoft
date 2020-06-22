@@ -2,3 +2,52 @@
 12 - Malloc (Alocação Dinâmica de Memória)
 ==================================================
 
+==> malloc <==
+
+#include <stdlib.h>
+void *malloc(size_t size)
+
+  Faz:
+    Se bem sucedido: 
+      retorna ponteiro para bloco de memória com pelo menos size bytes reservados, 
+      e com alinhamento de 16 bytes (em x86-64). Se size for zero, retorna NULL.
+
+    Se falhou: 
+      retorna NULL e preenche erro.
+
+  Ex.:
+    int N = 11;
+    int *vetor = malloc(N * sizeof(int)); 
+    
+    // o vetor é um ponteiro para um bloco de memória reservado com o tamanho desejado. 
+    // N=11, sizeof(int)=4bytes, tamanho=44bytes
+
+--------------------------------------------------
+
+==> free <==
+#include <stdlib.h>
+void free(void *p)
+
+  Faz:
+    Devolve o bloco apontado por para o pool de memória disponível
+    
+  Ex.:
+    void foo(int n) {
+      int i, *p;
+      
+      /* Allocate a block of n ints */
+      p = (int*) malloc(n * sizeof(int));
+      
+      if(p == NULL) {
+        perror("malloc");
+        exit(0);
+      }
+      
+      /* Initialize allocated block */
+      for(i = 0; i < n; i++) {
+        p[i] = i;
+      }
+      
+      /* Return allocated block to the heap */
+      free(p);
+    }
